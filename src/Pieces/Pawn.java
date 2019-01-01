@@ -1,6 +1,13 @@
+
+import javax.swing.ImageIcon;
+
 public class Pawn extends Piece {
   public Pawn (String c, int x, int y) {
     super(c, x, y);
+    if(c == "white")
+      setIcon(new ImageIcon(getClass().getResource("Pieces/Pics/WhitePawn.gif")));
+    else
+      setIcon(new ImageIcon(getClass().getResource("Pieces/Pics/BlackPawn.gif")));
   }
   public boolean isMoveValid (int newX, int newY, boolean pawnHasDiagonal) {
     //one forwards unless in inital place

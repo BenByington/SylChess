@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.awt.Image;
+
 public class Board {
   Piece[][] board;
 
@@ -63,13 +65,22 @@ public class Board {
     }
     return board[y][x].isMoveValid(newX, newY, pawnHasDiagonal);
   }
-  public void movePiece (int x, int y, int newX, int newY) {
+  public boolean movePiece (int x, int y, int newX, int newY) {
+    if (!isMoveValid(x, y, newX, newY)) return false;
     board[newY][newX] = board[y][x]; 
     board[newY][newX].setXPos(newX);
     board[newY][newX].setYPos(newY);
     board[y][x] = null;
+    return true;
   }
   public String toString () {
     return Arrays.deepToString(board);
+  }
+  
+  public Image getImage(int x, int y)
+  {
+    if(board[x][y] == null)
+      return null;
+    return board[x][y].getImage();
   }
 }

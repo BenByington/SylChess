@@ -1,7 +1,12 @@
+
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 public abstract class Piece {
   String color; //white or black
   int xPos; // where the piece is
   int yPos;
+  private ImageIcon pic;
 
   public Piece () {
     color = "";
@@ -33,7 +38,15 @@ public abstract class Piece {
   public int getYPos () {
     return yPos;
   }
+  public Image getImage()
+  {
+    return pic.getImage();
+  }
+  public void setIcon(ImageIcon i)
+  {
+    pic = i;
+  }
 
-  public abstract boolean isMoveValid (int newX, int newY, boolean pawnHasDiagonal, boolean hasDiagonal, boolean );
+  public abstract boolean isMoveValid (int newX, int newY, boolean pawnHasDiagonal);
   public abstract String toString ();
 }
